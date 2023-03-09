@@ -31,3 +31,7 @@ async function fn3(){
     }
 }
 fn3()
+
+const path = require("node:path")
+const result = path.resolve()
+console.log(result)
