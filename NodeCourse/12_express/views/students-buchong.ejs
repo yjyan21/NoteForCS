@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>这是ejs文件</title>
+</head>
+<body>
+    <h1>Hello ejs;</h1>
+		<h2><%=name %> <%=age %> <%=gender %></h2>
+		<!-- <% console.log("hello") %> -->
+        
+    <form action="/set_name" type="get">
+      <input type="text" name="name" placeholder="username">
+			<button>submit</button>
+    </form>
+		<% if(name=="sunwukong"){%>
+			<h2>大师兄来了</h2>
+		<% } else{ %>
+			<h2>二师兄来了</h2>
+			<% } %>
+</body>
+</html>
