@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>修改学生信息</title>
+    <style>
+      table { border-collapse: collapse;}
+      th,td { border:1px red solid; padding:5px;text-align: center;}
+    </style>
+</head>
+<body>
+    <form action="/update_student?id=<%=student.id%>" method="post">
+        <div>Name: <input type="text" name="name" value="<%=student.name%>"/></div>
+        <div>Age: <input type="number" name="age" max="150" min="0" value="<%=student.age%>"/></div>
+        <div>
+          Gender: <input type="radio" name="gender" value="Male" 
+           <%=(student.gender === "male" || student.gender === "Male") && "checked" %>
+          />Male
+          <input type="radio" name="gender" value="Female" 
+          <%=(student.gender === "female" || student.gender === "Female") && "checked" %>
+          />Female
+        </div>
+        <div>Address: <input type="text" name="address" value="<%=student.address%>"/></div>
+        <button>submit</button>
+      </form> 
+</body>
+</html>
