@@ -6,7 +6,11 @@ const fs = require("fs/promises")
 
 //学生列表
 router.get("/list",(req,res)=>{
-    res.render("students",{stus:STUDENTS_ARR})
+    if(req.cookies.username){
+        res.render("students",{stus:STUDENTS_ARR})
+    }else{
+        res.redirect("/")
+    }
 })
 //添加
 router.post("/add",(req,res,next)=>{
