@@ -5,11 +5,29 @@ const STU_ARR = [
 	{id:"2",name:"zhubajie",age:19,gender:"Male",address:"gaolaozhuang"},
 	{id:"3",name:"shaheshang",age:28,gender:"Male",address:"liushahe"}
 ]
-
+app.use(express.json())
 app.use((req,res,next)=>{
-		//res.setHeader("Access-Control-Allow-Origin","*")
-		res.setHeader("Access-Control-Allow-Origin","http://127.0.0.1:5500")
+		res.setHeader("Access-Control-Allow-Origin","*")
+		//res.setHeader("Access-Control-Allow-Origin","http://127.0.0.1:5500")
+		res.setHeader("Access-Control-Allow-Method","GET,POST,PUT,DELETE,PATCH")
+		res.setHeader("Access-Control-Allow-Headers","Content-type")
 		next()
+})
+
+//定义一个登录的路由/api
+app.post("/login",(req,res)=>{
+	const {username, password} = req.body
+	if(username === "admin" && password === "123"){
+		res.send({
+			status:"ok",
+			data:{id:"12345",name:"admin",nickname:"superManager"}
+		})
+	}else{
+		res.status(403).send({
+			status:"err",
+			data:"username or password is not correct."
+		})
+	}
 })
 
 //定义学生信息的路由
